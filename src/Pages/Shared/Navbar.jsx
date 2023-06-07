@@ -17,7 +17,7 @@ const Navbar = () => {
                             <li><Link to='/dashboard' className='bg-transparent text-[#8C0D43]  focus:bg-[#8C0D43] focus:text-white font-bold active:scale-90'>Dashboard</Link></li>
                         </ul>
                     </div>
-                    <Link><img src={logo} alt="" className='h-20'/></Link>
+                    <Link><img src={logo} alt="" className='lg:h-24'/></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
