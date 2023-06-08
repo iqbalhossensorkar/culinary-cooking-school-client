@@ -28,7 +28,7 @@ const Footer = () => {
                     <div className='flex items-center gap-5'>
                         <Social />
                     </div>
-                    <div className='mt-10 text-lg font-semibold hover:lg:shadow-lg transition lg:p-3'>We’re always in search for talented and <br /> motivated people. Don’t be <br /> shy introduce yourself! <div className='w-10 hover:shadow-xl shadow-black rounded-full hover:scale-110 transition'>
+                    <div className='mt-10 text-lg font-semibold hover:lg:shadow-lg transition lg:p-3'>We are always in search for talented and <br /> motivated people. Do not be <br /> shy introduce yourself! <div className='w-10 hover:shadow-xl shadow-black rounded-full hover:scale-110 transition'>
                         <BsArrowRightCircle size={40} className='text-[#8C0D43]'/>
                     </div></div>
                     
