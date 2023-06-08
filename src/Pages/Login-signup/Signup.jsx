@@ -176,7 +176,7 @@ const Signup = () => {
                     <div onClick={handleGoogleSignIn} className='hover:ring-4 w-9 mx-auto hover:ring-blue-700 hover:ring-opacity-50 rounded-full'>
                         <AiFillGoogleCircle size={36} className='hover:scale-90 transition text-blue-700' />
                     </div>
-                    <div className="text-center pb-5 mt-5">Already have an account <Link className="hover:underline text-error">Login</Link></div>
+                    <div className="text-center pb-5 mt-5">Already have an account <Link to='/login' className="hover:underline text-error">Login</Link></div>
                 </form>
             </div>
         </div>
