@@ -1,8 +1,8 @@
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
 import { BsArrowRightCircle, BsPhone } from 'react-icons/bs'
 
-import FooterImage from '../Components/FooterImage';
-import Social from '../Components/Social';
+import FooterImage from '../../Components/FooterImage';
+import Social from '../../Components/Social';
 const Footer = () => {
     return (
         <div>

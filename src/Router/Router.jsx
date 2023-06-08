@@ -6,36 +6,41 @@ import Classes from "../Pages/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import ErrorPage from "../Pages/ErrorPage";
 import Signup from "../Pages/Login-signup/Signup";
+import Login from "../Pages/Login-signup/Login";
 
 const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Main />,
-      errorElement: <ErrorPage />,
-      children: [
-        {
-            path: '/',
-            element: <Home />,
-        },
-        {
-            path: '/instructors',
-            element: <Instructors />,
-        },
-        {
-            path: '/classes',
-            element: <Classes />,
-        },
-      ]
+        path: "/",
+        element: <Main />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: '/',
+                element: <Home />,
+            },
+            {
+                path: '/instructors',
+                element: <Instructors />,
+            },
+            {
+                path: '/classes',
+                element: <Classes />,
+            },
+        ]
     },
     {
-path: '/signup',
-element: <Signup />
+        path: '/signup',
+        element: <Signup />
+    },
+    {
+        path: '/login',
+        element: <Login />
     },
     {
         path: '/dashboard',
         element: <Dashboard />,
-        
-    },
-  ]);
 
-  export default router;
+    },
+]);
+
+export default router;
