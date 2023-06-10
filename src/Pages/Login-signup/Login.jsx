@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { saveUser } from "../../api/auth";
 
 const Login = () => {
     const { signInWithGoogle, signIn, setLoading } = useContext(AuthContext)
@@ -41,7 +42,7 @@ const Login = () => {
         signInWithGoogle()
             .then(res => {
                 console.log(res.user);
-                // saveUser(res.user)
+                saveUser(res.user)
                 navigate(from, { replace: true })
             }).catch(error => {
                 console.log(error.message);

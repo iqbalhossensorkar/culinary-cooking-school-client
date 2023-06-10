@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { AuthContext } from "../../providers/AuthProviders";
 import { toast } from "react-hot-toast";
+import { saveUser } from "../../api/auth";
 // import axios from "axios";
 
 
@@ -31,8 +32,8 @@ const Signup = () => {
         const password = data.password;
         const formData = new FormData();
         formData.append('image', data.photoURL[0]);
-        console.log(data.name);
-
+        // console.log(data.name);
+        setLoading(true)
         const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`
         fetch(url, {
             method: 'POST',
@@ -44,14 +45,14 @@ const Signup = () => {
                 // console.log(imageRes.data.display_url);
                 createUser(email, password)
                     .then(res => {
-                        console.log(res.user);
+                        // console.log(res.user);
                         updateUserProfile(name, imgURL)
                             .then(() => {
                                 toast.success("User created successfully!")
-                                // saveUser(res.user)
+                                saveUser(res.user)
                                 navigate(from, { replace: true })
                             }).catch(error => {
-                                console.log(error.message);
+                                // console.log(error.message);
                                 toast.error(error.message)
                                 setLoading(false)
                             })
@@ -63,12 +64,12 @@ const Signup = () => {
         signInWithGoogle()
             .then(res => {
                 console.log(res.user);
-                // saveUser(res.user)
+                saveUser(res.user)
                 navigate(from, { replace: true })
             }).catch(error => {
                 console.log(error.message);
                 toast.error(error.message)
-                // setLoading(false)
+                setLoading(false)
             })
     }
 

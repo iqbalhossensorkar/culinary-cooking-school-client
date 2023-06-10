@@ -33,14 +33,14 @@ const Navbar = () => {
                         <li><NavLink to='/' className='bg-transparent text-[#F8A33C]  focus:bg-[#F8A33C] focus:text-white font-bold active:scale-90'>Home</NavLink></li>
                         <li><NavLink to='/instructors' className='bg-transparent text-[#6F2A16]  focus:bg-[#6F2A16] focus:text-white font-bold active:scale-90'>Instructors</NavLink></li>
                         <li><NavLink to='/classes' className='bg-transparent text-[#7C652E]  focus:bg-[#7C652E] focus:text-white font-bold active:scale-90'>Classes</NavLink></li>
-                       {user &&  <li><NavLink to='/dashboard' className='bg-transparent text-[#8C0D43]  focus:bg-[#8C0D43] focus:text-white font-bold active:scale-90'>Dashboard</NavLink></li>}
+                        {user && <li><NavLink to='/dashboard' className='bg-transparent text-[#8C0D43]  focus:bg-[#8C0D43] focus:text-white font-bold active:scale-90'>Dashboard</NavLink></li>}
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {user ?
                         <>
                             <div className='mr-5'>
-                                <img src={user.photoURL} alt="avatar"  className="rounded-full btn-circle h-9 w-9 " />
+                                <img src={user.photoURL} alt="avatar" className="rounded-full btn-circle h-9 w-9 " />
                             </div>
                             <div className="bg-black btn lg:btn-sm btn-xs text-white hover:text-black hover:border-2 transition rounded hover:bg-transparent border-red-400 lg:font-bold" onClick={handleLogOut}>logout</div>
                         </> :
