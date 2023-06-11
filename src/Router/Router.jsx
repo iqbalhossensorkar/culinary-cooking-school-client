@@ -8,6 +8,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import Signup from "../Pages/Login-signup/Signup";
 import Login from "../Pages/Login-signup/Login";
 import PrivateRoute from "./PrivateRoute";
+import AddClass from "../Pages/Dashboard/TeacherDashboard/AddClass";
 
 const router = createBrowserRouter([
     {
@@ -15,32 +16,19 @@ const router = createBrowserRouter([
         element: <Main />,
         errorElement: <ErrorPage />,
         children: [
-            {
-                path: '/',
-                element: <Home />,
-            },
-            {
-                path: '/instructors',
-                element: <Instructors />,
-            },
-            {
-                path: '/classes',
-                element: <Classes />,
-            },
+            { path: '/', element: <Home />, },
+            { path: '/instructors', element: <Instructors />, },
+            { path: '/classes', element: <Classes />, },
         ]
     },
-    {
-        path: '/signup',
-        element: <Signup />
-    },
-    {
-        path: '/login',
-        element: <Login />
-    },
+    { path: '/signup', element: <Signup />, },
+    { path: '/login', element: <Login />, },
     {
         path: '/dashboard',
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
-
+        children: [
+            { path: '/dashboard/add-class', element: <AddClass />, }
+        ]
     },
 ]);
 

@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import Sidebar from "../../Components/dashboard/sidebar";
 
 const Dashboard = () => {
     return (
         <div>
-            DashBoard page here
-            <Link className="btn" to='/'>home</Link>
+            <Sidebar />
         </div>
     );
 };
