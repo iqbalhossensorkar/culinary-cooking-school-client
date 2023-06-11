@@ -2,12 +2,24 @@ import { useQuery } from "@tanstack/react-query";
 // import { Helmet } from "react-helmet";
 import AllUsersTable from "../../../Components/allUsers/AllUsersTable";
 import { toast } from "react-hot-toast";
+import useAxiosSecure from "../../../api/useAxiosSecure";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 
 const AllUsers = () => {
-    const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/users`)
-        return res.json();
+    const { loading } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure();
+
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users`)
+            // console.log('res from axios', res)
+            return res.data;
+        }
+
     })
 
     const handleMakeAdmin = (user) => {
@@ -22,7 +34,7 @@ const AllUsers = () => {
                     refetch();
                     toast.success(`${user.name} become an Admin!`)
                 }
-                
+
             })
 
     }
@@ -41,11 +53,11 @@ const AllUsers = () => {
     }
 
     return (
-        <div className="">
+        <div className="" >
             {/* <Helmet>
                 <title>Manage Users- CSCA</title>
             </Helmet> */}
-            <p className="text-center mt-20 text-3xl font-bold underline underline-offset-8 decoration-wavy decoration-warning-content">Manage All Users</p>
+            < p className="text-center mt-20 text-3xl font-bold underline underline-offset-8 decoration-wavy decoration-warning-content" > Manage All Users</p>
             <div className="overflow-x-auto mx-20 mt-20">
                 <table className="table">
                     <thead>
@@ -58,11 +70,11 @@ const AllUsers = () => {
                         </tr>
                     </thead>
 
-                    {users.map((singleUser, index) => <AllUsersTable key={singleUser._id} singleUser={singleUser} index={index} handleMakeAdmin={handleMakeAdmin} handleMakeInstructor={handleMakeInstructor}  />)}
+                    {users.map((singleUser, index) => <AllUsersTable key={singleUser._id} singleUser={singleUser} index={index} handleMakeAdmin={handleMakeAdmin} handleMakeInstructor={handleMakeInstructor} />)}
                 </table>
             </div>
 
-        </div>
+        </div >
     );
 };
 

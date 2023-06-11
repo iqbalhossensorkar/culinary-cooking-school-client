@@ -4,6 +4,8 @@ import { AiOutlineMenuFold } from "react-icons/ai";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../providers/AuthProviders';
+import useAdmin from '../../api/useAdmin';
+import useInstructor from '../../api/useInstructor';
 
 
 const Sidebar = () => {
@@ -14,7 +16,9 @@ const Sidebar = () => {
         logOut()
         navigate('/')
     }
-    const userRole = 'admin';
+    // const userRole = 'admin';
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     // console.log(userRole);
     return (
         <div className="drawer lg:drawer-open container mx-auto">
@@ -32,18 +36,21 @@ const Sidebar = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     <img src={logo} alt="" />
-                    {userRole === 'student' ? (
-                        <li><a>student</a></li>
-                    ) : userRole === 'instructor' ? (
-                        <li><Link to='/dashboard/add-class'>Add A Class</Link></li>
-                    ) : userRole === 'admin' ? (
+                    {isAdmin ? (
                         <>
                             <li><Link to='/dashboard/manage-classes'>Manage Classes</Link></li>
                             <li><Link to='/dashboard/manage-users'>Manage Users</Link></li>
                         </>
+                    ) : isInstructor ? (
+                        <>
+                            <li><Link to='/dashboard/add-classes'>Add A Class</Link></li>
+                        </>
                     ) : (
-                        <Link to='/'>Home</Link>
+                        <>
+                            <li><a>student</a></li>
+                        </>
                     )}
+
                     <div className="divider mt-10"></div>
                     <li><Link to='/'>Home</Link></li>
                     <div className="divider"></div>

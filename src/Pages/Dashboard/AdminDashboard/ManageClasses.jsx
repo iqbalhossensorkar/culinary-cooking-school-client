@@ -1,12 +1,12 @@
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 const ManageClasses = () => {
     return (
 
         <div>
-            <Helmet>
+            {/* <Helmet>
                 <title>Manage Classes- CSCA</title>
-            </Helmet>
+            </Helmet> */}
         </div>
     );
 };
