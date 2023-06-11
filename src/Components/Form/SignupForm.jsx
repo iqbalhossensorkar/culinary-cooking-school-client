@@ -70,7 +70,7 @@ const SignupForm = ({ setShowHide, handleGoogleSignIn, setHideShow, hide, show, 
                     </label>
                     {errors.confirmPassword && <p className="text-error">{errors.confirmPassword.message}</p>}
                 </div>
-                <div className="lg:flex items-center">
+                <div className="lg:flex items-center gap-2">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text"><span className="text-error">*</span>Select Photo:</span>

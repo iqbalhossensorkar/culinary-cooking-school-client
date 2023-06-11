@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
+import { CgSpinner } from 'react-icons/cg'
 
-const AddClassForm = ({ user }) => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+const AddClassForm = ({ user, onSubmit, loading }) => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    console.log(watch("example"));
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +51,7 @@ const AddClassForm = ({ user }) => {
                     </div>
                 </div>
 
-                <input className="bg-black btn mt-5 mb-5 text-white hover:text-black hover:border-2 transition w-full rounded-lg hover:bg-transparent border-red-400 font-bold" type="submit" value="add now" />
+                <button className="bg-black btn mt-5 mb-5 text-white hover:text-black hover:border-2 transition w-full rounded-lg hover:bg-transparent border-red-400 font-bold" type="submit"  >{loading ? <CgSpinner className="animate-spin text-[#F2F2F2]" size={24}/> : 'Add Now'}</button>
             </form>
         </>
     );
