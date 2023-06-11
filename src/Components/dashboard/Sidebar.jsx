@@ -15,7 +15,7 @@ const Sidebar = () => {
         navigate('/')
     }
     const userRole = 'admin';
-    console.log(userRole);
+    // console.log(userRole);
     return (
         <div className="drawer lg:drawer-open container mx-auto">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
