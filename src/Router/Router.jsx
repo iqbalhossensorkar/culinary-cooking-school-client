@@ -11,6 +11,9 @@ import PrivateRoute from "./PrivateRoute";
 import AddClass from "../Pages/Dashboard/TeacherDashboard/AddClass";
 import AllUsers from "../Pages/Dashboard/AdminDashboard/AllUsers";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
+import AdminOnly from "./AdminOnly";
+import MyClasses from "../Pages/Dashboard/TeacherDashboard/MyClasses";
+import InstructorOnly from "./InstructorOnly";
 
 const router = createBrowserRouter([
     {
@@ -29,9 +32,10 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
-            { path: '/dashboard/add-classes', element: <AddClass /> },
-            { path: '/dashboard/manage-users', element: <AllUsers /> },
-            { path: '/dashboard/manage-classes', element: <ManageClasses /> },
+            { path: '/dashboard/add-classes', element: <InstructorOnly><AddClass /></InstructorOnly> },
+            { path: '/dashboard/my-classes', element: <InstructorOnly><MyClasses /></InstructorOnly> },
+            { path: '/dashboard/manage-users', element: <AdminOnly> <AllUsers /> </AdminOnly> },
+            { path: '/dashboard/manage-classes', element: <AdminOnly><ManageClasses /></AdminOnly> },
         ]
     },
 ]);

@@ -44,6 +44,7 @@ const Sidebar = () => {
                     ) : isInstructor ? (
                         <>
                             <li><Link to='/dashboard/add-classes'>Add A Class</Link></li>
+                            <li><Link to='/dashboard/my-classes'>My Classes</Link></li>
                         </>
                     ) : (
                         <>
