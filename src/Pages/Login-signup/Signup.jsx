@@ -28,22 +28,25 @@ const Signup = () => {
         const name = data.name;
         const email = data.email;
         const password = data.password;
+        setLoading(true)
+        // console.log(data.name);
+
         const formData = new FormData();
         formData.append('image', data.photoURL[0]);
-        // console.log(data.name);
-        setLoading(true)
-        const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`
+
+        const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY_2}`;
+
         fetch(url, {
             method: 'POST',
             body: formData,
         })
             .then(res => res.json())
-            .then(imageRes => {
-                const imgURL = imageRes.data.display_url;
-                // console.log(imageRes.data.display_url);
+            .then(imgRES => {
+                // console.log(imgRES.data.display_url);
+                const imgURL = imgRES.data.display_url
                 createUser(email, password)
                     .then(res => {
-                        // console.log(res.user);
+                        console.log(res.user);
                         updateUserProfile(name, imgURL)
                             .then(() => {
                                 toast.success("User created successfully!")
@@ -56,6 +59,38 @@ const Signup = () => {
                             })
                     })
             })
+            .catch(error => {
+                console.error('Error:', error);
+
+            });
+
+        // const formData = new FormData();
+        // formData.append('image', data.photoURL[0].name);
+        // console.log(data.photoURL[0].name);
+        // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY_2}`
+        // fetch(url, {
+        //     method: 'POST',
+        //     body: formData,
+        // })
+        //     .then(res => res.json())
+        //     .then(imgRES => {
+        //         // const imageRes = imgRES.data.display_url;
+        //         console.log(imgRES);
+        //         // createUser(email, password)
+        //         //     .then(res => {
+        //         //         console.log(res.user);
+        //         //         updateUserProfile(name, imgRES)
+        //         //             .then(() => {
+        //         //                 toast.success("User created successfully!")
+        //         //                 saveUser(res.user)
+        //         //                 navigate(from, { replace: true })
+        //         //             }).catch(error => {
+        //         //                 // console.log(error.message);
+        //         //                 toast.error(error.message)
+        //         //                 setLoading(false)
+        //         //             })
+        //         //     })
+        //     })
 
     };
 

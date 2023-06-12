@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import AddClassForm from "../../../Components/Form/AddClassForm";
 import { AuthContext } from "../../../providers/AuthProviders";
-import { Helmet } from "react-helmet";
+import { toast } from "react-hot-toast";
+// import { Helmet } from "react-helmet";
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
@@ -33,10 +34,14 @@ const AddClass = () => {
                         name,
                         email
                     },
-                    seats,
-                    price
+                    seats: parseFloat(seats),
+                    price: parseFloat(price),
                 }
-                console.log(classData);
+                const url = `${import.meta.env.VITE_API_URL}/class`
+                fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(classData) })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    toast.success('Class Added Successfully!')
                 setLoading(false)
             })
             .catch(error => {
@@ -47,9 +52,9 @@ const AddClass = () => {
     };
     return (
         <div className="mx-80">
-            <Helmet>
+            {/* <Helmet>
                 <title>Add A Class- CSCA</title>
-            </Helmet>
+            </Helmet> */}
             <div className="grid justify-center items-center  shadow-2xl mt-10">
                 <h1 className="text-center text-[#8C0D43] text-2xl decoration-2 decoration-[#7C652E] decoration-wavy underline mt-10 mb-5 font-thin underline-offset-8">Add A Class</h1>
                 <AddClassForm user={user} loading={loading} onSubmit={onSubmit} />

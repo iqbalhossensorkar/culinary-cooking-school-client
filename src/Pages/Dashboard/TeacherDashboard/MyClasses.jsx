@@ -1,8 +1,13 @@
+import MyClassesTable from "../../../Components/Myclasses/MyClassesTable";
+import useClass from "../../../api/useClass";
 
 const MyClasses = () => {
+    const [singleClass] = useClass();
     return (
         <div>
-            My classes
+            {
+                singleClass.map(item => <MyClassesTable key={item._id} item={item} />)
+            }
         </div>
     );
 };
