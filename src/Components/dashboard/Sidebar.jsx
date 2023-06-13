@@ -1,11 +1,17 @@
 import logo from '../../assets/logo.png'
 import { Link, Outlet } from "react-router-dom";
-import { AiOutlineMenuFold } from "react-icons/ai";
+import { AiOutlineAppstoreAdd, AiOutlineMenuFold } from "react-icons/ai";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../providers/AuthProviders';
 import useAdmin from '../../api/useAdmin';
 import useInstructor from '../../api/useInstructor';
+import { FaChalkboardTeacher, FaRegUser } from 'react-icons/fa';
+import { BiHomeAlt2, BiSelection } from 'react-icons/bi';
+import { IoMdLogOut } from 'react-icons/io';
+import { LuSettings2 } from 'react-icons/lu';
+import { MdOutlineManageAccounts, MdOutlineNoteAlt } from 'react-icons/md';
+import { VscListSelection } from 'react-icons/vsc';
 
 
 const Sidebar = () => {
@@ -38,26 +44,27 @@ const Sidebar = () => {
                     <img src={logo} alt="" />
                     {isAdmin ? (
                         <>
-                            <li><Link to='/dashboard/manage-classes'>Manage Classes</Link></li>
-                            <li><Link to='/dashboard/manage-users'>Manage Users</Link></li>
+                            <li><Link to='/dashboard/manage-classes'><MdOutlineNoteAlt /> Manage Classes</Link></li>
+                            <li><Link to='/dashboard/manage-users'><MdOutlineManageAccounts /> Manage Users</Link></li>
                         </>
                     ) : isInstructor ? (
                         <>
-                            <li><Link to='/dashboard/add-classes'>Add A Class</Link></li>
-                            <li><Link to='/dashboard/my-classes'>My Classes</Link></li>
+                            <li><Link to='/dashboard/add-classes'><AiOutlineAppstoreAdd /> Add A Class</Link></li>
+                            <li><Link to='/dashboard/my-classes'><FaChalkboardTeacher /> My Classes</Link></li>
                         </>
                     ) : (
                         <>
-                            <li><a>student</a></li>
+                            <li><Link to='/dashboard/my-selected-classes'><BiSelection /> My Selected Classes</Link></li>
+                            <li><Link to='/dashboard/my-enrolled-classes'><VscListSelection /> My Enrolled Classes</Link></li>
                         </>
                     )}
 
                     <div className="divider mt-10"></div>
-                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/'><BiHomeAlt2 /> Home</Link></li>
                     <div className="divider"></div>
-                    <li><Link className=' mt-20' to=''>Profile</Link></li>
-                    <li><button onClick={handleLogOut} className='' to=''>Logout</button></li>
-                    <li><Link className='' to=''>Settings</Link></li>
+                    <li><Link className=' mt-20' to=''><FaRegUser /> Profile</Link></li>
+                    <li><button onClick={handleLogOut} className='' to=''><IoMdLogOut /> Logout</button></li>
+                    <li><Link className='' to=''><LuSettings2 /> Settings</Link></li>
                 </ul>
             </div>
         </div>

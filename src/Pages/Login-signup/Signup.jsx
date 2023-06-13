@@ -42,11 +42,12 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(imgRES => {
-                // console.log(imgRES.data.display_url);
+                console.log(imgRES.data.display_url
+                    );
                 const imgURL = imgRES.data.display_url
                 createUser(email, password)
                     .then(res => {
-                        console.log(res.user);
+                        // console.log(res.user);
                         updateUserProfile(name, imgURL)
                             .then(() => {
                                 toast.success("User created successfully!")

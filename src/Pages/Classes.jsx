@@ -1,10 +1,40 @@
 import Typewriter from 'typewriter-effect';
-import ClassesCard from "../Components/Classes/ClassesCard";
-import useClass from "../api/useClass";
+// import ClassesCard from "../Components/Classes/ClassesCard";
+// import useClass from "../api/useClass";
+// import { toast } from 'react-hot-toast';
+// import { AuthContext } from '../providers/AuthProviders';
+// import { useLocation, useNavigate } from 'react-router-dom';
+// import { useContext } from 'react';
 
 
 const Classes = () => {
-    const [singleClass] = useClass();
+    // const [, refetch] = useClass();
+    // const { user } = useContext(AuthContext);
+    // const navigate = useNavigate();
+    // const location = useLocation();
+
+
+    // const handleAddClass = item => {
+    //     console.log(item);
+    //     if (user && user.email) {
+    //         const classItem = { menuItemId: _id, name, image, price, email: user.email }
+    //         fetch(`${import.meta.env.VITE_API_URL}/class`, {
+    //             method: 'POST',
+    //             headers: {
+    //                 'content-type': 'application/json'
+    //             },
+    //             body: JSON.stringify(classItem)
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.insertedId) {
+    //                     refetch();
+    //                     toast.error('Please Login First!')
+    //                 }
+    //             })
+    //     }
+    // }
+
     return (
         <div className="w-9/12 mx-auto ">
             <div className="form-control grid justify-end mb-16 ">
@@ -27,7 +57,7 @@ const Classes = () => {
                 />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center lg:grid-cols-3 gap-10">
-                {singleClass.map(item => <ClassesCard key={item._id} item={item} />)}
+                {/* {singleClass.map(item => <ClassesCard key={item._id} item={item} />)} */}
             </div>
         </div>
     );

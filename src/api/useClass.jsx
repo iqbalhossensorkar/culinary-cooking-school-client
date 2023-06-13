@@ -8,9 +8,9 @@ const useClass = () => {
     return res.json();
   };
 
-  const { data: singleClass = [], isLoading: loading } = useQuery(queryKey, queryFn);
+  const { data: singleClass = [], isLoading: loading, refetch } = useQuery(queryKey, queryFn);
 
-  return [singleClass, loading];
+  return [singleClass, loading, refetch];
 };
 
 export default useClass;
