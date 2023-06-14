@@ -36,7 +36,7 @@ const Classes = () => {
     // }
 
     return (
-        <div className="w-9/12 mx-auto ">
+        <div className="w-9/12 mx-auto">
             <div className="form-control grid justify-end mb-16 ">
                 <div className="input-group">
                     <input type="text" placeholder="Search…" className="input input-bordered input-warning" />

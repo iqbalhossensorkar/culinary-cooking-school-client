@@ -36,7 +36,6 @@ const AllUsers = () => {
                 }
 
             })
-
     }
     const handleMakeInstructor = (user) => {
         fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user}`, {
