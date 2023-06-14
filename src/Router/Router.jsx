@@ -14,6 +14,8 @@ import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
 import AdminOnly from "./AdminOnly";
 import MyClasses from "../Pages/Dashboard/TeacherDashboard/MyClasses";
 import InstructorOnly from "./InstructorOnly";
+import MySelectedClass from "../Pages/Dashboard/StudentDashboard/MySelectedClass";
+import MyEnrolledClasses from "../Pages/Dashboard/StudentDashboard/MyEnrolledClasses";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
             { path: '/dashboard/my-classes', element: <InstructorOnly><MyClasses /></InstructorOnly> },
             { path: '/dashboard/manage-users', element: <AdminOnly> <AllUsers /> </AdminOnly> },
             { path: '/dashboard/manage-classes', element: <AdminOnly><ManageClasses /></AdminOnly> },
+            { path: '/dashboard/my-selected-classes', element: <MySelectedClass /> },
+            { path: '/dashboard/my-enrolled-classes', element: <MyEnrolledClasses /> },
         ]
     },
 ]);
