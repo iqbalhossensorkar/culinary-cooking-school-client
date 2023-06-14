@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+
 
 const ClassesCard = ({ item, handleAddToCart }) => {
+    const {user, role} = useContext(AuthContext)
+    console.log(role, user);
     // console.log(item);
     const { image, instructor, price, seats, title } = item;
     

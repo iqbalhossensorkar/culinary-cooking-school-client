@@ -1,16 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 
 const useClass = () => {
-  const queryKey = ['singleClass'];
+    const [classes, setClasses] = useState([]);
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+      fetch(`${import.meta.env.VITE_API_URL}/approve`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setClasses(data)
+                setLoading(false);
+            })
+    }, [])
+    return [classes, loading]
+}
 
-  const queryFn = async () => {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/class`);
-    return res.json();
-  };
-
-  const { data: singleClass = [], isLoading: loading, refetch } = useQuery(queryKey, queryFn);
-
-  return [singleClass, loading, refetch];
-};
-
-export default useClass;
+export default useClass
