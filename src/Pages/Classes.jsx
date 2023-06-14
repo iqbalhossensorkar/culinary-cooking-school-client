@@ -6,7 +6,7 @@ import ClassesCard from '../Components/Classes/ClassesCard';
 const Classes = () => {
     const [classes] = useClass();
     const approved = classes.filter(item => item.status == 'approve')
-    console.log(approved);
+    // console.log(approved);
 
 
     return (
