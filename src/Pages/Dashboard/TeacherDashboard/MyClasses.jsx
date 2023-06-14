@@ -36,14 +36,16 @@ const MyClasses = () => {
                                 <th></th>
                             </tr>
                         </thead>
-                        {classes &&
-                            classes.map(item => (
-                                <MyClassesTable
-                                    key={item?._id}
-                                    item={item}
-                                    refetch={refetch}
-                                />
-                            ))}
+                        <tbody>
+                            {classes &&
+                                classes.map(item => (
+                                    <MyClassesTable
+                                        key={item?._id}
+                                        item={item}
+                                        refetch={refetch}
+                                    />
+                                ))}
+                        </tbody>
                     </table>
                 </div>
             </div>

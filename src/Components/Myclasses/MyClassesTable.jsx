@@ -1,15 +1,14 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
 
 
 const MyClassesTable = ({ item }) => {
     // console.log(item);
-    const { image, instructor, title, status, feedback } = item;
-    
+    const { _id, image, instructor, title, status, feedback } = item;
 
     return (
-        <tbody>
+        <>
             <tr>
                 <th></th>
                 <td>
@@ -37,10 +36,10 @@ const MyClassesTable = ({ item }) => {
                     <p>{feedback}</p>
                 </th>
                 <th>
-                    <button className="btn btn-warning btn-xs">Update</button>
+                    <Link to={`/dashboard/update-class/${_id}`} ><button className="btn btn-neutral btn-xs">Update</button></Link>
                 </th>
-            </tr>
-        </tbody>
+            </tr >
+        </>
     );
 };
 

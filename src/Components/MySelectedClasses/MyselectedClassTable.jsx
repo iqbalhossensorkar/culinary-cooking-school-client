@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { FaPaypal, FaTrashAlt } from "react-icons/fa";
 import DeleteModal from "../AllClasses/DeleteModal";
-import { deleteRoom } from "../../api/classes";
 import { toast } from "react-hot-toast";
+import { deleteClass } from "../../api/classes";
+import { Link } from "react-router-dom";
 
 const MyselectedClassTable = ({ addedClass, index, refetch }) => {
     // console.log(addedClass);
@@ -16,7 +17,7 @@ const MyselectedClassTable = ({ addedClass, index, refetch }) => {
     }
     const modalHandler = id => {
         console.log(id)
-        deleteRoom(id)
+        deleteClass(id)
           .then(data => {
             console.log(data)
             refetch()
@@ -47,7 +48,7 @@ const MyselectedClassTable = ({ addedClass, index, refetch }) => {
                     <button className="btn btn-error btn-xs" onClick={() => setIsOpen(true)}><FaTrashAlt className="text-white" /></button>
                 </td>
                 <td>
-                    <button className="btn btn-success btn-xs" ><FaPaypal className="text-white" /></button>
+                    <Link to='/dashboard/payment'><button className="btn btn-success btn-xs" ><FaPaypal className="text-white" /></button></Link>
                 </td>
             </tr>
             <DeleteModal isOpen={isOpen} id={addedClass._id} closeModal={closeModal} modalHandler={modalHandler}  />
