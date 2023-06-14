@@ -32,6 +32,7 @@ const MyClasses = () => {
                                 <th>Instructor</th>
                                 <th>Status</th>
                                 <th>Enrolled Student</th>
+                                <th>Feedback</th>
                                 <th></th>
                             </tr>
                         </thead>

@@ -2,9 +2,12 @@
 /* eslint-disable react/prop-types */
 
 
+
 const MyClassesTable = ({ item }) => {
-    console.log(item);
-    const { image, instructor, price, seats, title } = item;
+    // console.log(item);
+    const { image, instructor, title, status, feedback } = item;
+    
+
     return (
         <tbody>
             <tr>
@@ -13,7 +16,7 @@ const MyClassesTable = ({ item }) => {
                     <div className="flex items-center space-x-3">
                         <div className="avatar">
                             <div className="mask mask-squircle w-12 h-12">
-                                <img src={image} alt="food image" className="hover:scale-125 transition"/>
+                                <img src={image} alt="food image" className="hover:scale-125 transition" />
                             </div>
                         </div>
                         <div>
@@ -26,10 +29,12 @@ const MyClassesTable = ({ item }) => {
                     <br />
                     <span className="badge badge-ghost badge-sm">{instructor.email}</span>
                 </td>
-                <td>pending</td>
+                <td>
+                    {status == 'approve' ? (<div className="badge badge-success">approved</div>) : status == 'deny' ? (<div className="badge badge-error">denied</div>) : (<div className="badge badge-warning">Pending</div>)}
+                </td>
                 <td>0</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">Feedback</button>
+                    <p>{feedback}</p>
                 </th>
                 <th>
                     <button className="btn btn-warning btn-xs">Update</button>
