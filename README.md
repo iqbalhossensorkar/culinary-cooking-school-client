@@ -5,7 +5,7 @@ Best ever kids toy store, where user/seller can add and see their added products
 
 ## Live Link
 
-(Firebase) -> https://bog-bear-toy.web.app/
+(Firebase) -> https://csca-cooking-school.web.app/
 
 
 ## Features
