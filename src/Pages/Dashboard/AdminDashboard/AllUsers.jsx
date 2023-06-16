@@ -32,7 +32,7 @@ const AllUsers = () => {
                 // console.log(data);
                 if (data.modifiedCount) {
                     refetch();
-                    toast.success(`${user.name} become an Admin!`)
+                    toast.success(`user become an Admin!`)
                 }
 
             })
@@ -46,7 +46,7 @@ const AllUsers = () => {
                 // console.log(data);
                 if (data.modifiedCount) {
                     refetch();
-                    toast.success(`${user.name} become an Instructor!`)
+                    toast.success(`user become an Instructor!`)
                 }
             })
     }

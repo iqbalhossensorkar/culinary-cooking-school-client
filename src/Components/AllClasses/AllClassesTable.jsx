@@ -57,8 +57,8 @@ const AllClassesTable = ({ singleClass, index, handleMakeApprove, handleMakeDeny
                 <td>{singleClass?.title}</td>
                 <td>
                     <div>
-                        <div className="font-bold">{singleClass.instructor.name}</div>
-                        <div className="text-sm opacity-50">{singleClass.instructor.email}</div>
+                        <div className="font-bold">{singleClass.instructor && singleClass.instructor.name}</div>
+                        <div className="text-sm opacity-50">{singleClass.instructor && singleClass.instructor.email}</div>
                     </div>
                 </td>
                 <td>{singleClass.seats}</td>
